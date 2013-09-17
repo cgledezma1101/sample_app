@@ -64,5 +64,8 @@ module SampleApp
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # As of Ruby 4.0, need to add this line
+    # config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
