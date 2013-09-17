@@ -8,11 +8,26 @@ gem 'rails', '3.2.13'
 group :development, :test do
   gem 'sqlite3', '1.3.7'
   gem 'rspec-rails', '2.13.1'
+  # Gems to use Guard for automated testing 
+  gem 'guard-rspec', '2.5.0'
+
+  # Gems for Spork, to speed up tests
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess', '0.3.9'
 end
 
 group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.1.0'
+  # Automated testing on MacOSX
+  gem 'growl', '1.0.3'
+  # Automated testing on Linux
+  # gem 'libnotify', '0.8.0'
+  # Automated testing on Windows
+  # gem 'rb-notifu', '0.0.4'
+  # gem 'win32console', '1.3.2'
+  # gem 'wdm', '0.1.0'
 end
 
 
