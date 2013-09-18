@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 #    @user = User.new(user_params) # This is the preferred method in Rails 4.0
     if @user.save
-      # Handle a successful save
+      flash[:success] = "Welcome to the sample app!"
+      redirect_to @user
     else
       render 'new'
     end
