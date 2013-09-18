@@ -5,6 +5,9 @@ gem 'rails', '3.2.13'
 # Add Bootsrap for dynamic styling
 gem 'bootstrap-sass', '2.3.2.0'
 
+# Make bcrypt available for encrypting passwords
+gem 'bcrypt-ruby', '3.0.1'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
