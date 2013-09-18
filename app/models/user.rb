@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
                   :password_confirmation
 
   # Callbacks
-  before_save { self.email = email.downcase }
+  before_save { email.downcase! }
 
   # Validations of the attributes
   validates :name, presence: true, length: { maximum: 50 }
