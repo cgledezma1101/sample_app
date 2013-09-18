@@ -34,6 +34,8 @@ group :test do
   # gem 'rb-notifu', '0.0.4'
   # gem 'win32console', '1.3.2'
   # gem 'wdm', '0.1.0'
+  # Generate factoriees for testing
+  gem 'factory_girl_rails', '4.2.1'
 end
 
 
@@ -64,3 +66,6 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+# Debugging
+gem 'pry'
