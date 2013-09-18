@@ -13,5 +13,6 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false}
 
   # Ensure a secure password
-#  has_secure_password
+  has_secure_password
+  validates :password, length: { minimum: 6 }
 end
