@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+# Preferred method on Rails 4.0
+#  before_action :signed_in_user, only: [:edit, :update] 
+#  before_action :correct_user, only: [:edit, :update]
+
+# Since it's not implemented on Rails 3, do it this way
+  before_filter :signed_in_user, only: [:edit, :update]
+  before_filter :correct_user, only: [:edit, :update]
+
   def show
     @user = User.find(params[:id])
   end
@@ -19,9 +27,33 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+  end
+
+  def update
+#    if @user.update_attributes(user_params) #This is the preferred method in Rails 4.0
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    # Before the filters
+
+    def signed_in_user
+      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
     end
 end
