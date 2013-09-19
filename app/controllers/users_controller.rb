@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
 # Preferred method on Rails 4.0
-#  before_action :signed_in_user, only: [:edit, :update] 
+#  before_action :signed_in_user, only: [:edit, :update, :index] 
 #  before_action :correct_user, only: [:edit, :update]
 
 # Since it's not implemented on Rails 3, do it this way
-  before_filter :signed_in_user, only: [:edit, :update]
+  before_filter :signed_in_user, only: [:edit, :update, :index]
   before_filter :correct_user, only: [:edit, :update]
 
+  def index
+    @users = User.all
+  end
+  
   def show
     @user = User.find(params[:id])
   end
