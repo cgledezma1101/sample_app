@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password_digest, :password, :password_confirmation
+  attr_accessible :email, 
+                  :name, 
+                  :password_digest, 
+                  :password, 
+                  :password_confirmation,
+                  :admin
 
   # Callbacks
   before_save { email.downcase! }
