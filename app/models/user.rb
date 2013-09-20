@@ -1,10 +1,15 @@
 class User < ActiveRecord::Base
+  # Rails 4.0 can deduce by itself which attributes are accessible using the
+  # data model, so this wouldn't be necessary  
   attr_accessible :email, 
                   :name, 
                   :password_digest, 
                   :password, 
                   :password_confirmation,
                   :admin
+
+  # Association with the Micropost model
+  has_many :microposts, dependent: :destroy
 
   # Callbacks
   before_save { email.downcase! }
